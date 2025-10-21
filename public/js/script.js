@@ -2,7 +2,10 @@
 document.addEventListener('DOMContentLoaded', () => {
   const scheduleContainer = document.getElementById('schedule');
   const categoryFilter = document.getElementById('category-filter');
+  const loadingIndicator = document.getElementById('loading');
   let talks = [];
+
+  loadingIndicator.style.display = 'block';
 
   fetch('/api/talks')
     .then(response => response.json())
@@ -10,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
       talks = data;
       populateCategories(talks);
       renderSchedule(talks);
+      loadingIndicator.style.display = 'none';
     });
 
   function populateCategories(talks) {
@@ -27,6 +31,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function renderSchedule(talksToRender) {
     scheduleContainer.innerHTML = '';
+
+    if (talksToRender.length === 0) {
+      const noTalksMessage = document.createElement('div');
+      noTalksMessage.classList.add('alert', 'alert-warning');
+      noTalksMessage.textContent = 'No talks found for this category.';
+      if (categoryFilter.value === 'all') {
+        noTalksMessage.textContent = 'No talks scheduled yet. Please check back later.';
+      }
+      scheduleContainer.appendChild(noTalksMessage);
+      return;
+    }
+
     let currentTime = new Date('2025-10-21T10:00:00');
 
     talksToRender.forEach((talk, index) => {
@@ -68,7 +84,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const selectedCategory = categoryFilter.value;
     if (selectedCategory === 'all') {
       renderSchedule(talks);
-    } else {
+    }
+    else {
       const filteredTalks = talks.filter(talk => talk.category.includes(selectedCategory));
       renderSchedule(filteredTalks);
     }
