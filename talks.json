@@ -1,0 +1,45 @@
+
+[
+  {
+    "title": "The Future of JavaScript",
+    "speakers": ["John Doe"],
+    "category": ["JavaScript", "Web Development"],
+    "duration": 60,
+    "description": "A deep dive into the next features of JavaScript and what they mean for web developers."
+  },
+  {
+    "title": "Building Scalable APIs with Node.js",
+    "speakers": ["Jane Smith"],
+    "category": ["Node.js", "API", "Backend"],
+    "duration": 60,
+    "description": "Learn how to design and build APIs that can handle millions of requests."
+  },
+  {
+    "title": "CSS Grid and Flexbox: A Love Story",
+    "speakers": ["Alex Johnson", "Sam Williams"],
+    "category": ["CSS", "Frontend"],
+    "duration": 60,
+    "description": "Master the art of layout with CSS Grid and Flexbox."
+  },
+  {
+    "title": "Introduction to Machine Learning with Python",
+    "speakers": ["Maria Garcia"],
+    "category": ["Python", "Machine Learning"],
+    "duration": 60,
+    "description": "A beginner-friendly introduction to the world of machine learning."
+  },
+  {
+    "title": "The Power of Serverless",
+    "speakers": ["David Lee"],
+    "category": ["Serverless", "Cloud"],
+    "duration": 60,
+    "description": "Discover the benefits of serverless architecture and how to get started."
+  },
+  {
+    "title": "Cybersecurity in 2025",
+    "speakers": ["Emily Chen"],
+    "category": ["Cybersecurity"],
+    "duration": 60,
+    "description": "An overview of the latest trends and threats in the world of cybersecurity."
+  }
+]
